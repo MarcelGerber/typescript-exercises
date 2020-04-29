@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import chalk from "chalk";
 
 /*
 
@@ -26,24 +26,30 @@ Run this exercise:
 
 */
 
-const users: unknown[] = [
+interface User {
+    name: string;
+    age: number;
+    occupation: string;
+}
+
+const users: User[] = [
     {
-        name: 'Max Mustermann',
+        name: "Max Mustermann",
         age: 25,
-        occupation: 'Chimney sweep'
+        occupation: "Chimney sweep",
     },
     {
-        name: 'Kate Müller',
+        name: "Kate Müller",
         age: 23,
-        occupation: 'Astronaut'
-    }
+        occupation: "Astronaut",
+    },
 ];
 
-function logPerson(user: unknown) {
+function logPerson(user: User) {
     console.log(` - ${chalk.green(user.name)}, ${user.age}`);
 }
 
-console.log(chalk.yellow('Users:'));
+console.log(chalk.yellow("Users:"));
 users.forEach(logPerson);
 
 // In case if you are stuck:

@@ -71,6 +71,10 @@ function logPerson(person: Person) {
   );
 }
 
+function getObjectKeys<T>(arg: T): (keyof T)[] {
+  return Object.keys(arg) as (keyof T)[];
+}
+
 function filterPersons(
   persons: Person[],
   personType: "user",
@@ -91,7 +95,7 @@ function filterPersons(
   return persons
     .filter((person) => person.type === personType)
     .filter((person) => {
-      let criteriaKeys = Object.keys(criteria) as (keyof Person)[];
+      let criteriaKeys = getObjectKeys(criteria);
       return criteriaKeys.every((fieldName) => {
         return person[fieldName] === criteria[fieldName];
       });
